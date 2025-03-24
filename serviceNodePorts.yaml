@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vivaad-service
+  namespace: vivaad
+  labels:
+    run: nginx
+spec:
+  ports:
+  - port: 80          # Port exposed within the cluster
+    targetPort: 80  # Port on the pods
+    nodePort: 9090  # Port accessible externally on each node
+  selector:
+    run: nginx
